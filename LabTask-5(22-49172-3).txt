@@ -1,0 +1,23 @@
+1. create table Department(deptid number(3) primary key,dept_name varchar(6) check(dept_name = 'CSE' or dept_name = 'EEE' or dept_name = 'BBA' or dept_name = 'Eng' or dept_name = 'Ach'),Budget number(6) default 0);
+
+2. create table Course(crs_id number(4) primary key,crs_name varchar2(20) not null,dept_id number(3),foreign key(dept_id) references Department(deptid));
+
+3. create table Student(s_id number(8),s_name varchar2(20),phone number(11),address varchar2(50),email varchar2(30),credit_completed number(3),course_completed number(2),cgpa number(2),deptno number(5),gender varchar2(6));
+
+4. Alter table Student add constraint skk primary key(s_id);
+
+5. Alter table Student modify s_name not null;
+
+6. Alter table Student add constraint ukk unique(email);
+
+7. Alter table student add constraint fkk foreign key(deptno) references Department(deptid);
+
+8. Alter table Student add constraint gkk check(gender='M' or gender ='F');
+
+9. Alter Table Student disable constraint skk;
+
+10. Alter Table Student Drop constraint gkk;
+
+11. select * from USER_CONS_COLUMNS where table_name = 'STUDENT';
+
+12. Alter Table Student enable constraint skk;

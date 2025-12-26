@@ -1,0 +1,11 @@
+1. create view EMP_VU
+as select empno,ename as Employee,deptno
+from emp;
+
+2. select *
+from EMP_VU;
+
+3. select Employee,deptno
+from EMP_VU;
+
+4. 

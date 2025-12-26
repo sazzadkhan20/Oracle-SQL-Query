@@ -1,0 +1,90 @@
+1. select *
+from emp
+where sal>all(select sal
+           from emp
+           where job='MANAGER');
+
+2. select *
+from emp
+where sal>any(select sal
+           from emp
+           where job='MANAGER') and job<>'MANAGER';
+
+3. select empno,job,sal
+from emp
+where sal>any(select sal
+           from emp
+           where job='MANAGER') and job<>'MANAGER' and job='ANALYST';
+
+4. select *
+from emp
+where deptno=(select deptno
+              from dept
+              where loc='DALLAS');
+
+5. select dname,loc  from dept
+where deptno in(select deptno
+                 from emp
+                 where mgr=(select mgr
+                               from emp
+                               where mgr=(select empno
+                                               from emp
+                                               where ename='SCOTT')));
+
+6. select *  from dept
+where deptno in(select deptno
+                 from emp
+                 where job='MANAGER');
+
+7. select *
+from emp
+where sal=(select max(sal)
+           from emp);
+
+8. select max(sal)
+from emp
+where sal<(select max(sal)
+           from emp);
+
+9. select max(sal)
+from emp
+where sal<(select max(sal)
+           from emp
+           where sal<(select max(sal)
+           from emp));
+
+10. select *
+from emp
+where (lower(job)='manager' or lower(job)='clerk') and deptno in(select deptno
+                                                                 from dept
+                                                                  where initcap(dname) 
+                                                              in('Accounts','Marketing'));
+
+11. select *
+from emp
+where initcap(job)='Salesman' and deptno not in(select deptno
+                                                from dept
+                                                where dname='DALLAS');
+
+12. select *
+from emp
+where deptno in(select deptno
+                from emp
+                where initcap(ename)='Scott') and initcap(ename)<>'Scott';
+
+13. select *
+from emp
+where sal=(select sal
+                from emp
+                where initcap(ename)='Smith') and initcap(ename)<>'Smith';
+
+14. select *
+from emp
+where comm>0 and to_char(hiredate,'Dy') not in('Fri','Sat') and deptno in(select deptno
+                                                                      from dept
+                                                                   where initcap(dname)='Marketing');
+
+15. select *
+from emp
+where sal>(select avg(sal)
+           from emp);

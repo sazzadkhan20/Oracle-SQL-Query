@@ -1,0 +1,10 @@
+1. select sysdate "Current Date"
+  from dual;
+
+2. select empno,ename,sal,sal+sal*0.15 "New Salary"
+  from emp;
+
+3. select empno,ename,sal,sal+sal*0.15 "New Salary",(sal+sal*0.15)-sal Increase
+  from emp;
+
+4. 

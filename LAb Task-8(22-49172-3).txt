@@ -1,0 +1,9 @@
+1. select e.*,d.dname,d.loc
+from emp e,dept d
+where lower(e.job) in ('manager','clerk') and e.deptno=d.deptno and lower(d.dname) in ('accounting','marketing'); 
+
+2. select e.*,d.dname,d.loc
+from emp e,dept d
+where lower(e.job) in ('salesman') and d.loc<>'DALLAS' and e.deptno=d.deptno;
+
+3. 

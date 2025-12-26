@@ -1,0 +1,35 @@
+1. select ename,sal
+from emp
+where sal>2850;
+
+2. select empno,ename,deptno
+from emp
+where empno=7566;
+
+3. select ename,job,hiredate
+from emp
+where hiredate between '20-Feb-81' and '01-May-81'
+order by hiredate;
+
+4. select ename,deptno
+from emp
+where deptno IN(10,30)
+order by ename;
+
+5. select ename as Employee,sal as "Monthly Salary"
+from emp
+where sal>1500 and deptno IN(10,30);//(deptno=10 or deptno=30)
+
+6. select ename,hiredate
+from emp
+where hiredate like '%82%';
+
+7. select ename,job
+from emp
+where mgr IS NULL;
+
+8. select ename,sal,comm
+from emp
+where comm>0
+order by sal desc,comm desc;
+

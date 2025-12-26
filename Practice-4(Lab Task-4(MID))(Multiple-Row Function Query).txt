@@ -1,0 +1,40 @@
+1. select avg(sal),max(sal),min(sal)
+from emp;
+
+2. select deptno,avg(sal),max(sal),min(sal)
+from emp
+group by deptno;
+
+3. select job,avg(sal),max(sal),min(sal)
+from emp
+group by job;
+
+4. select ename
+from emp
+where sal=(select min(sal)
+           from emp
+           where sal in(select sal
+                       from emp
+                       where empno in(select distinct mgr
+                                      from emp)));
+
+5. select loc
+from dept
+where deptno=(select deptno
+              from emp
+              group by deptno
+              having count(deptno)=(select max(count(deptno))
+                               from emp
+                               group by deptno));
+
+6. select job
+from emp
+group by job
+having sum(sal+NVL(comm,0))=(select max(sum(sal+NVL(comm,0)))
+                             from emp
+                             group by job);
+
+7. select ename,deptno
+from emp
+where sal=(select max(sal)
+           from emp);

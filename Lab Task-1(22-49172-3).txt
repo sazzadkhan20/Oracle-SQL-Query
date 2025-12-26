@@ -1,0 +1,18 @@
+1. select ename,deptno
+   from emp;
+
+2. select distinct job,deptno
+  from emp
+  where deptno = 30;
+
+3. select loc,deptno
+  from dept
+  where deptno = 30;
+
+4. select ename,empno,comm
+  from emp
+  where comm>0;
+
+5. select ename,deptno
+  from emp
+  where ename Like '%A%';

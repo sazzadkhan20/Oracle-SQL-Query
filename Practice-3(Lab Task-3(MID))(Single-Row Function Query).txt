@@ -1,0 +1,31 @@
+1. select to_char(Sysdate,'Dy,fmDdth-Mon-yy') as "Date"
+from dual;
+
+2. select empno,ename,sal,sal*1.15 as "New Salary"
+from emp;
+
+3. select empno,ename,sal,sal*1.15 as "New Salary",sal*1.15-sal as "Increase"
+from emp;
+
+4. select ename,to_char(hiredate,'Day," the "Ddspth" of "Month,yyyy') as hiredate,to_char(next_day(Add_Months(hiredate,6),'mon'),'Day," the "Ddspth" of "Month,yyyy') as Review
+from emp;
+
+5. select ename,Round(Months_Between(Sysdate,hiredate),0) as Months_Worked
+from emp
+order by Months_Worked;
+
+6. select concat(ename,concat(' earns ',concat(sal,concat('$ monthly but wants ',3*sal||'$')))) as "Dream Salaries"
+from emp;
+
+7. select initcap(ename) as "Employee Name",length(ename) as "Length of Employee Name"
+from emp
+where ename Like 'J%' or ename Like 'A%' or ename Like 'M%';/ select initcap(ename) as "Employee Name",length(ename) as "Length of Employee Name"
+from emp
+where instr(ename,'J')=1 or instr(ename,'A')=1 or instr(ename,'M')=1;
+
+8.  select ename,NVL(to_char(comm),'No Commission') as comm
+from emp;
+
+9. select ename,RPAD('*',Floor(sal/100),'*') as EMPLOYEE_AND_THEIR_SALARIES
+from emp
+order by sal desc;

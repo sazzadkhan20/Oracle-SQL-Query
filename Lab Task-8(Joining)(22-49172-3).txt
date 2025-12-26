@@ -1,0 +1,55 @@
+1.select* 
+ from emp e,dept d where e.deptno=d.deptno and job in ('MANAGER','CLERK') and dname in ('MARKETING','ACCOUNTING');
+
+2. select* 
+ from emp e,dept d where e.deptno=d.deptno and job='SALESMAN' and loc<>'DALLAS';
+
+3. select m.ename,d.dname,d.loc 
+from emp e,emp m,dept d 
+where e.ename='CLARK' and e.empno=m.mgr and d.deptno=m.deptno;
+ 
+4. select d.* 
+from emp e,dept d
+ where e.deptno=d.deptno and job='MANAGER'; 
+
+5. select * 
+from emp e,dept d 
+where e.deptno=d.deptno and loc<>'DALLAS';
+ 
+6. 
+
+7. select nvl(e.ename,'NO EMPLOYEES'),d.* 
+from emp e,dept d 
+where e.deptno(+)=d.deptno;
+
+8. select e.,d. 
+from emp e,dept d 
+where e.deptno(+)=d.deptno;
+
+9. select d.* 
+from emp e,dept d
+ where e.deptno(+)=d.deptno and e.deptno is null;
+
+10. select e.ename,nvl(m.ename,'CEO')
+ from emp e,emp m
+ where e.mgr=m.empno(+);
+ 
+11. select o.*
+ from emp s,emp o 
+where o.deptno=s.deptno and s.ename='SCOTT'and o.ename<>'SCOTT'; 
+
+12. select e.,m.hiredate 
+from emp e ,emp m 
+where e.mgr=m.empno and e.hiredate<m.hiredate; 
+
+13. select e. 
+from emp e ,emp m
+ where e.mgr=m.empno and e.sal>m.sal; 
+
+14. select e.*,m.ename,m.sal 
+from emp e ,emp m 
+where e.sal=m.sal and e.empno<>m.empno;
+
+15. select e.ename,e.hiredate,m.ename,m.hiredate 
+from emp e ,emp m,emp s
+ where e.mgr=m.empno and e.sal=s.sal and s.ename='SMITH'and e.ename<>'SMITH';
